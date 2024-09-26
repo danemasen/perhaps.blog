@@ -1,0 +1,112 @@
+@font-face {
+ font-family: 'Iosevka Custom';
+ src: url('./assets/fonts/IosevkaCustom-Regular.ttf');
+}
+
+:root {
+ background: #272e33;
+ color: #d3c6aa;
+ font-family: 'Iosevka Custom', monospace;
+}
+
+body {
+ display: grid;
+ grid-template-rows: 6rem 1fr 12rem;
+ min-height: 98vh;
+}
+
+header {
+ display: grid;
+ grid-template-rows: 3rem 1rem;
+ justify-content: center;
+ align-content: center;
+ text-align: center;
+ padding-bottom: 2rem;
+}
+
+#welcome-msg {
+ grid-area: welcome;
+}
+
+#latest {
+ grid-area: latest;
+}
+
+#all {
+ grid-area: all;
+}
+
+#rss {
+ grid-area: rss;
+}
+
+main {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ grid-template-rows: 1fr 1.5rem;
+ grid-template-areas:
+  "welcome latest"
+  "welcome all"
+  "welcome rss";
+}
+
+footer {
+ text-align: center;
+ color: #3c4841;
+ padding-top: 6rem;
+}
+
+a {
+ color: #7fbbb3;
+}
+
+a:hover {
+ color: #384b55;
+}
+
+h2, h3, h4 {
+ color: #dbbc7f;
+}
+
+.quote {
+ padding: 1rem 1rem 0 1rem;
+}
+
+.quote-credit {
+ color: #4f5b58;
+ text-align: right;
+}
+
+.command {
+ background: #2e383c;
+ font-size: 120%;
+ padding: 0.4rem;
+ border-style: solid;
+ border-color: #374145;
+ border-width: 0 0 0 4px;
+}
+
+span {
+ background: #2e383c;
+ padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+ font-size: 110%;
+ font-family: monospace;
+}
+
+#search {
+ text-align: center;
+}
+
+#search-input {
+ width: 40%;
+ border: 1px solid #414b50;
+ margin-top: 1rem;
+ padding: 0.2rem;
+ background: #3c4841;
+ color: #d3c6aa;
+}
+
+#my-posts {
+ list-style-type: none;
+ text-align: left;
+}

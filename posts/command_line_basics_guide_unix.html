@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../styles.css">
+  <title>Command Line Basics Guide for UNIX-like Systems - Perhaps</title>
+ </head>
+ <body>
+  <special-header></special-header>
+   <article>
+    <h2>Command Line Basics Guide for UNIX-like Systems</h2>
+     <h3>Overview</h3>
+      <ul>
+       <li>Preface</li>
+       <li>Terminology</li>
+       <li>Booting Up Your Terminal Emulator</li>
+       <li>Essential Commands</li>
+       <li>Getting Help</li>
+       <li>Consulting the Man(ual)</li>
+       <li>Closing Notes</li>
+      </ul>
+     <h3>Preface</h3>
+      <p>This guide assumes you are on a UNIX-like system, such as any flavor of Linux, BSD or OS X/MacOS!</p>
+     <h3>Terminology</h3>
+      <ul>
+       <li>The Command Line Interface -- Or <i>CLI</i> for short, the command line is where we type strings of text that are called <i>commands</i>.</li>
+       <li>The Terminal ---------------- Originally just a keyboard and monitor, which had no mouse or graphics like computers of today. Now we use terminal <i>emulators</i> to emulate these old PCs.</li>
+       <li>The Shell ------------------- The shell is called the <i>shell</i>, because it's the "layer" that wraps around the kernel of the operating system, and allows the user or other programs to interact directly with the system's services. Typically through a terminal emulator.</li>
+      </ul>
+     <h3>Booting Up Your Terminal Emulator</h3>
+      <p>UNIX-like systems usually have a terminal emulator installed, so search up <span>terminal</span> through your system menu, to find the pre-installed terminal. If you don't find a terminal, search the internet for a terminal emulator for your UNIX-like environment; it may be under a different name (other than terminal), or one may not even be installed, in which case you will have to find one to install. I recommend <a href="https://alacritty.org/">alacritty</a>, as it's fast and cross-platform!</p>
+      <p>After launching your terminal emulator, you can start typing some commands and enter them with the <i>Return/Enter</i> key. The next section will cover the must-know commands.</p>
+     <h3>Essential Commands</h3>
+      <p>Below is a list of commands and a brief description of what they do. Try them out! Experiment with them so you commit them to memory.</p>
+       <p><span>whoami</span> shows the current user that is logged in.</p>
+       <p><span>pwd</span> stands for <i>'print working directory'</i> and it shows what directory you're currently in.</p>
+       <p><span>ls</span> stands for <i>list</i> and it lists files and directories located in your current working directory.</p>
+       <p><span>cat</span> stands for <i>con<b>cat</b>enate</i> and it prints the contents of a file to the terminal.</p>
+       <p><span>cd</span> stands for <i>'change directory'</i> and as it would suggest; it changes the current directory you're in.</p>
+       <p><span>touch</span> creates a file named whatever is passed to it, i.e. <span>touch foo</span> will create a file named <i>foo</i>.</p>
+       <p><span>rm</span> stands for <i>remove</i> and it simply removes a file that has been passed to it, i.e. <span>rm bar</span> will remove the <i>bar</i> file.</p>
+       <p><span>mkdir</span> stands for <i>'make directory'</i> and as it would suggest; it creates a directory with the name of the passing argument, i.e. <span>mkdir baz</span> will make a directory named <i>baz</i>.</p>
+       <p><span>mv</span> stands for <i>move</i> and it does what it says on the tin; it moves files or directories to another location, and it takes two arguments, and can be used to rename files or directories, i.e. <span>mv foo/ bar/</span> will rename the <span>foo</span> directory, to <span>bar</span>. Same can be done for files!</p>
+       <p><span>sudo</span> executes the following command with root privileges.</p>
+      <h4>\_ Command Flags</h4>
+       <p>Below you will read some commands that are prefixed with a dollar sign, and that dollar sign is there to indicate you can use the command is a normal user, i.e. not as root. A command that requires root privileges (or sudo) will be prefixed with a number sign. These two signs are <i>not</i> a part of the command itself, and are to be ignored!</p>
+       <p>Sometimes a command expects (or requires) a <i>flag</i>, and an easy example is the <span>-r</span> flag that works with the <span>rm</span> command:</p>
+        <pre class="command">$ rm -r baz/</pre>
+       <p>The above command will remove the directory named <i>baz</i>, and it works recursively so it will remove anything contained within the <i>baz</i> directory! For more information on different flags, read the <b>Getting Help</b> and <b>Consulting the Man(ual)</b> sections.</p>
+      <h4>\_ Piping Commands</h4>
+       <p>One thing you may be wondering is can we filter the output of a command? This is where <span>grep</span> comes in. We pipe something like <span>ls</span> into <span>grep</span> as such:</p>
+        <pre class="command">$ ls | grep hello</pre>
+       <p>This will <i>only</i> show files and directories containing <b><i>hello</i></b>. It doesn't have to be just one word, it can be multiple words, but we must enclose it in quotation marks like so:</p>
+        <pre class="command">$ ls | grep "hello world"</pre>
+       <p>Like I said above, this will <i>only</i> show files and directories containing the phrase <b><i>hello world</i></b>.</p>
+       <p>Another thing that is commonly used when piping commands together is the <span>less</span> command, which is a pager that is typically used when viewing <i>man pages</i>, which will be covered later. Piping a command into the <span>less</span> makes the output scrollable:</p>
+        <pre class="command">ls -a -l | less</pre>
+       <p>A quick walk-through of this command:</p>
+        <p><span>ls</span> lists the current directory's contents.</p>
+        <p><span>-a</span> stands for <i>all</i> and just lists everything in a directory, including hidden files, which are also referred to as <i>dotfiles</i>.</p>
+        <p><span>-l</span> stands for <i>list</i> which will put everything in a neat long list with a bunch of extra information aside every file/directory.</p>
+        <p><span>|</span> is the pipe we're covering now, just funnels the output of the command on the left into the input of the command on the right.</p>
+        <p><span>less</span> is the pager program that makes the output scrollable.</p>
+      <h4>\_ Redirecting Output</h4>
+       <p>You can redirect the output of a command into something else; like a file:</p>
+        <pre class="command">$ cat some_file.txt > another_file.txt</pre>
+       <p>This will take the output of <span>cat</span>, and in this case, it will copy the contents of <span>some_file.txt</span> to <span>another_file.txt</span> and if <span>another_file.txt</span> doesn't exist, it will be created.</p>
+       <p>Notice the single <span>></span> this means <i>overwrite</i>. If we use two greater than signs instead of one, like such:</p>
+        <pre class="command">$ cat some_file.txt >> another_file.txt</pre>
+       <p>The <span>>></span> means <i>append</i> the output of <span>cat some_file.txt</span> to <span>another_file.txt</span>. So we just stick on the contents onto the contents of the other file, without deleting anything.</p>
+      <h4>\_ Chaining Commands Together</h4>
+       <p>Sometimes we need to execute some commands one after another, and there are multiple ways to do this, we can either type in one command; wait for it to finish; then type in the next, or we can do something like this:</p>
+        <pre class="command">$ ping -c 3 gnu.org ; ls</pre>
+        <p><span>ping</span> sends a signal to a specified web address or IP address, to check if it's online. This command is often used to check if there's internet access.</p>
+        <p><span>-c 3</span> tells the ping command to only send a signal three times. You can change the number to be any number you want.</p>
+        <p><span>gnu.org</span> is the web address or IP address, that we want to ping.</p>
+        <p><span>;</span> tells the shell to run the next command no matter if the previous command failed or succeeded.</p>
+        <p><span>ls</span> lists all files and directories in the current directory. </p>
+      <h4>\_ Standard Key Combinations</h4>
+       <p>Sometimes we need to cancel an executed command, such as <span>ping</span>, to do this we can use Ctrl+c.</p>
+       <p>This means we press Ctrl <i>and</i> c together, at the same time. This will interrupt whatever command is currently executing!</p>
+       <p>We can also use Ctrl+d to which is useful for quickly exiting CLI applications or quickly closing the terminal.</p>
+     <h3>Getting Help</h3>
+      <p>If you ever need some quick, basic help for a specific command, passing either the <span>-h</span> flag or the <span>--help</span> flag, will typically show you some helpful information on how to use the specified command.
+     <h3>Consulting the Man(ual)</h3>
+      <p>An essential command to know is the <span>man</span> command! It will spit out a manual page, on any command that has a man page, including man itself! Try it out:</p>
+       <pre class="command">$ man man</pre>
+      <p>If we wanted to know about the <span>less</span> command:</p>
+       <pre class="command">$ man less</pre>
+    <h3>Closing Notes</h3>
+     <p>Thank you for reading this blog post!</p>
+     <p>Was this useful? <a href="../">Perhaps</a>.</p>
+   </article>
+  <special-footer></special-footer>
+  <script src="../scripts.js"></script>
+ </body>
+</html>

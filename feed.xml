@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+ <title>Perhaps</title>
+ <link>https://perhaps.blog</link>
+ <description>A tech blog.</description>
+
+ <item>
+  <title>New post: OpenSSH Basics Guide for Unix-like Systems</title>
+  <link>https://perhaps.blog/posts/openssh_basics_guide_unix.html</link>
+  <description>
+   "[Open Secure Shell] is the premier connectivity tool for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks..."
+  </description>
+  <pubDate>Sun, 30 Jun 2024</pubDate>
+ </item>
+
+ <item>
+  <title>New post: Command Line Basics Guide for UNIX-like Systems</title>
+  <link>https://perhaps.blog/posts/command_line_basics_guide_unix.html</link>
+  <description>
+   "UNIX-like systems usually have a terminal emulator installed, so search up terminal through your system menu, to find the pre-installed terminal. If you don't find a terminal, search the internet for a terminal emulator for your UNIX-like environment; it may be under a different name (other than terminal), or one may not even be installed, in which case you will have to find one to install..."
+  </description>
+  <pubDate>Sat, 29 Jun 2024</pubDate>
+ </item>
+
+</channel>
+</rss> 
