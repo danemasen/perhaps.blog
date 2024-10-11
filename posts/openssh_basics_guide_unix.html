@@ -119,11 +119,18 @@ Host nas
       <p>To move files from the remote machine to the local machine:</p>
        <pre class="command">$ scp username@address:/path/example_file .</pre>
      <h3>Troubleshooting</h3>
-     <h4>Too Open Permissions</h4>
+     <h4>\_ Too Open Permissions</h4>
       <p>You may get a message stating that your permissions are too open, and if that's the case, run the following command:</p>
        <pre class="command">$ chmod 600 ~/.ssh/private_key_name</pre>
       <p>Replace <i>private_key_name</i> with the name of your private key(s.)</p>
       <p>You must do this for <i>every</i> private key!</p>
+     <h4>\_ OpenSSH Still Allowing Password Authentication</h4>
+      <p>If you are still able to connect to your server via SSH with only a password (and not being forced to use your key), you need to edit another file in addition to <i><b>/etc/ssh/ssh_config</b></i>. This file is located here: <i><b>/etc/ssh/sshd_config</b></i>.</p>
+      <p>Find the following line and edit it from this:</p>
+       <pre class="command">#PasswordAuthentication yes</pre>
+      <p>To this:</p>
+       <pre class="command">PasswordAuthentication no</pre>
+      <p>Make sure to remove the <span>#</span> to uncomment the line!</p>
      <h3>Additional Resources</h3>
        <ul>
         <li><a href="https://www.openssh.com/manual.html">OpenSSH Manual Pages</a></li>
