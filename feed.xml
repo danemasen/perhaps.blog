@@ -6,6 +6,15 @@
  <description>A tech blog.</description>
 
  <item>
+  <title>Wireguard with Mullvad VPN</title>
+  <link>https://perhaps.blog/posts/wireguard_with_mullvad_vpn.html</link>
+  <description>
+   "WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache..."
+  </description>
+  <pubDate>Thu, 10 Oct 2024</pubDate>
+ </item>
+
+ <item>
   <title>New post: OpenSSH Basics Guide for Unix-like Systems</title>
   <link>https://perhaps.blog/posts/openssh_basics_guide_unix.html</link>
   <description>
@@ -24,4 +33,4 @@
  </item>
 
 </channel>
-</rss> 
+</rss>
