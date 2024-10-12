@@ -49,21 +49,21 @@
        <li>Follow the on-screen instructions</li>
        <li>Click on <i>Account</i> in the top right corner, once you've created an account and added time to it</li>
        <li>Click <i>WireGuard configuration</i> in the left panel</li>
-       <li>Generate a new key or enter an old private key. I'll tell you how to import a key in the next section</li>
+       <li>Generate a new key</li>
        <li>Select a country, city and server</li>
-       <li>(optional) Enable multihop and select another server</li>
+       <li>(optional) Enable multihop and select another country, city and server</li>
        <li>Configure content blocking to your liking</li>
        <li>Download the file</li>
       </ul>
      <h4>\_ "Installing" the Configuration File</h4>
-     <p>To "install" it we need to move the file to the correct directory:</p>
+     <p>To "install" the file we just downloaded, we need to move the file to the correct directory:</p>
       <pre class="command"># mv FILENAME.conf /etc/wireguard/</pre>
      <p>Now we can connect to the server using <span>wg-quick</span>:</p>
-      <pre class="command"># wg-quick up CONFIG_FILE_NAME</pre>
+      <pre class="command"># wg-quick up FILENAME</pre>
      <p>Now you should be connected to a Mullvad server via WireGuard! Go to <a href="https://mullvad.net/en/check">Mullvad.net/en/check</a> to check your connection.</p>
-     <p>NOTE: When you replace <i>CONFIG_FILE_NAME</i> with the name of the file you downloaded previously, make sure to omit <i>.conf</i> extension!</p>
+     <p>NOTE: When you replace <i>FILENAME</i> with the name of the file you downloaded previously, make sure to omit <i>.conf</i> extension!</p>
      <p>To disconnect from a server:</p>
-      <pre class="command"># wg-quick down CONFIG_FILE_NAME</pre>
+      <pre class="command"># wg-quick down FILENAME</pre>
      <p>To see what server you're currently connected to:</p>
       <pre class="command"># wg show</pre>
      <p>That's it!</p>
